@@ -6,11 +6,11 @@ var MusicMaster = (function () {
 
     /**
      * Play a note of given frequency
-     */   
+     */
 	mm.playNote = function(frequency) {
         this.oscilator = this.context.createOscillator();
         this.oscilator.type = "sine";
-        this.oscilator.frequency = frequency;
+				this.oscilator.frequency.setValueAtTime(frequency, this.context.currentTime);
         this.oscilator.connect(this.context.destination);
         this.oscilator.start();
     };
